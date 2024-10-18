@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e8d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #3b755f;
+            padding: 40px;
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        .form-container h2 {
+            color: #fff;
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-container label {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input,
+        .form-container textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-container textarea {
+            resize: none;
+            height: 60px;
+        }
+        .form-container button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Form Pendaftaran</h2>
+        <form id="formPendaftaran">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" placeholder="Masukkan nama">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Masukkan email">
+            
+            <label for="alamat">Alamat Lengkap</label>
+            <textarea id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+            
+            <button type="button" onclick="validasiForm()">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        function validasiForm() {
+            var nama = document.getElementById("nama").value;
+            var email = document.getElementById("email").value;
+            var alamat = document.getElementById("alamat").value;
+            
+            // Validasi jika nama kosong
+            if (nama == "") {
+                alert("Nama tidak boleh kosong");
+                return false;
+            }
+            
+            // Validasi jika email kosong atau bukan domain @gmail.com
+            var gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (email == "") {
+                alert("Email tidak boleh kosong");
+                return false;
+            } else if (!gmailPattern.test(email)) {
+                alert("Email harus menggunakan format @gmail.com");
+                return false;
+            }
+            
+            // Validasi jika alamat kosong
+            if (alamat == "") {
+                alert("Alamat tidak boleh kosong");
+                return false;
+            }
+
+            alert("Pendaftaran berhasil!");
+        }
+    </script>
+
+</body>
+</html>
