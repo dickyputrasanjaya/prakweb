@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff; /* Warna biru untuk latar belakang luar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white; /* Kotak latar belakang putih */
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 50px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #hasil {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Penjumlahan</h1>
+        <div>
+            <label for="bil1">Bilangan pertama</label>
+            <br>
+            <input type="number" id="bil1" value="1">
+        </div>
+        <div>
+            <label for="bil2">Bilangan kedua</label>
+            <br>
+            <input type="number" id="bil2" value="2">
+        </div>
+        <div>
+            <button onclick="jumlahkan()">Jumlahkan</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <div id="hasil">Hasil: 0</div>
+    </div>
+
+    <script>
+        function jumlahkan() {
+            var bil1 = parseInt(document.getElementById("bil1").value);
+            var bil2 = parseInt(document.getElementById("bil2").value);
+            var hasil = bil1 + bil2;
+            document.getElementById("hasil").innerText = "Hasil: " + hasil;
+        }
+
+        function reset() {
+            document.getElementById("bil1").value = 0;
+            document.getElementById("bil2").value = 0;
+            document.getElementById("hasil").innerText = "Hasil: 0";
+        }
+    </script>
+
+</body>
+</html>
